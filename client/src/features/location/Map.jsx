@@ -23,7 +23,7 @@ const Map = () => {
     return;
   }
   if (!data.lat || !data.lon) {
-    return <p>Map unavailable</p>;
+    return <p className='errorMessage'>Map unavailable</p>;
   }
 
   const position = [data.lat, data.lon];

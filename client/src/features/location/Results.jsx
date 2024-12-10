@@ -9,7 +9,7 @@ const Results = () => {
     return;
   }
   if (!data.lat || !data.lon) {
-    return <p>Location data unavailable</p>;
+    return <p className='errorMessage'>Location data unavailable</p>;
   }   
 
     return (

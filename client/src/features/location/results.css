@@ -35,6 +35,14 @@
 
 .resultItemValue {
     font-size: 100%;
+    font-weight: 500;
+}
+
+.errorMessage {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    font-size: 25px;
 }
 
 @media (min-width: 376px) and (max-width: 1023px) {
