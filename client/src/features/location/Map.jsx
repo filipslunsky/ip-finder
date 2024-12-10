@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-
+import { useSelector } from 'react-redux';
 import markerIcon from '../../assets/img/icon-location.svg';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
@@ -15,7 +15,17 @@ const customIcon = new L.Icon({
 });
 
 const Map = () => {
-  const position = [49.1953, 16.6016];
+  const status = useSelector((state) => state.location.status);
+  const data = useSelector((state) => state.location.apiResponse);
+
+  if (status === 'idle' || status === 'loading') {
+    return;
+  }
+  if (!data.lat || !data.lon) {
+    return <p>Map unavailable</p>;
+  }
+
+  const position = [data.lat, data.lon];
 
   return (
     <MapContainer center={position} zoom={13} style={{ height: '100vh', width: '100%' }}>
@@ -24,10 +34,11 @@ const Map = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={position} icon={customIcon}>
-        <Popup>add something here later</Popup>
+        <Popup>Right here</Popup>
       </Marker>
     </MapContainer>
   );
 };
 
 export default Map;
+

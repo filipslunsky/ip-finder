@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_BASE_URL = 'http://ip-api.com/json';
-
 const initialState = {
     apiResponse: {},
     status: 'idle',
@@ -10,7 +8,7 @@ const initialState = {
 
 const getLocation = createAsyncThunk('location/getLocation', async (ipAddress) => {
     try {
-        const res = await fetch(`${API_BASE_URL}/${ipAddress}`);
+        const res = await fetch(`http://ip-api.com/json/${ipAddress}?fields=61439`);
         if (!res.ok) {
             return rejectWithValue('Failed to fetch location data');
         }
