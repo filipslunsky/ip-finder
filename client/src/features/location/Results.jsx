@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import './results.css';
 
 const Results = () => {
     const data = useSelector(state => state.location.apiResponse);

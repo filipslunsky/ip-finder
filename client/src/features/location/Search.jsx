@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import rightArrowIcon from '../../assets/img/icon-arrow.svg';
 import { getLocation } from "./state/slice";
+import './search.css';
 
 const Search = () => {
     const searchRef = useRef();
@@ -17,10 +18,12 @@ const Search = () => {
         <>
             <div className="mainSearchContainer">
                 <h2 className="searchHeading">IP Address Tracker</h2>
-                <input ref={searchRef} type="text" placeholder="search for any IP address or domain" />
-                <button onClick={handleSearch}>
-                    <img src={rightArrowIcon} alt="right arrow icon" />
-                </button>
+                <div className="searchBarContainer">
+                    <input className="searchInput" ref={searchRef} type="text" placeholder="search for any IP address or domain" />
+                    <button className="searchButton" onClick={handleSearch}>
+                        <img src={rightArrowIcon} alt="right arrow icon" />
+                    </button>
+                </div>
             </div>
         </>
     );

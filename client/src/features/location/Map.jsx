@@ -4,6 +4,7 @@ import L from 'leaflet';
 import { useSelector } from 'react-redux';
 import markerIcon from '../../assets/img/icon-location.svg';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import './map.css';
 
 const customIcon = new L.Icon({
   iconUrl: markerIcon,
@@ -28,15 +29,19 @@ const Map = () => {
   const position = [data.lat, data.lon];
 
   return (
-    <MapContainer center={position} zoom={13} style={{ height: '100vh', width: '100%' }}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position} icon={customIcon}>
-        <Popup>Right here</Popup>
-      </Marker>
-    </MapContainer>
+    <>
+      <div className="mainMapContainer">
+        <MapContainer center={position} zoom={13} style={{ height: '100vh', width: '100%' }}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position} icon={customIcon}>
+            <Popup>Right here</Popup>
+          </Marker>
+        </MapContainer>
+      </div>
+    </>
   );
 };
 

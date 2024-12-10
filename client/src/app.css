@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-image: url('./assets/img/pattern-bg-desktop.png');
+    background-repeat: no-repeat;
+}
+
+/* mobile size devices*/
+@media (max-width: 375px) {
+    body {
+        background-image: url('./assets/img/pattern-bg-mobile.png');
+    }
+}
