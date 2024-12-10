@@ -14,12 +14,18 @@ const Search = () => {
         dispatch(getLocation(ipAddress));
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <>
             <div className="mainSearchContainer">
                 <h2 className="searchHeading">IP Address Tracker</h2>
                 <div className="searchBarContainer">
-                    <input className="searchInput" ref={searchRef} type="text" placeholder="search for any IP address or domain" />
+                    <input className="searchInput" ref={searchRef} onKeyDown={handleKeyDown} type="text" placeholder="search for any IP address or domain" />
                     <button className="searchButton" onClick={handleSearch}>
                         <img src={rightArrowIcon} alt="right arrow icon" />
                     </button>
