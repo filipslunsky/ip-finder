@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+const API_IP = import.meta.env.VITE_API_URL;
+
 const initialState = {
     apiResponse: {},
     status: 'idle',
@@ -8,7 +10,8 @@ const initialState = {
 
 const getLocation = createAsyncThunk('location/getLocation', async (ipAddress) => {
     try {
-        const res = await fetch(`http://ip-api.com/json/${ipAddress}?fields=61439`);
+        console.log(`${API_IP}/${ipAddress}`)
+        const res = await fetch(`${API_IP}/workaround-api/${ipAddress}`);
         if (!res.ok) {
             return rejectWithValue('Failed to fetch location data');
         }
