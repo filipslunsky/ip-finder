@@ -10,7 +10,6 @@ const initialState = {
 
 const getLocation = createAsyncThunk('location/getLocation', async (ipAddress) => {
     try {
-        console.log(`${API_IP}/${ipAddress}`)
         const res = await fetch(`${API_IP}/workaround-api/${ipAddress}`);
         if (!res.ok) {
             return rejectWithValue('Failed to fetch location data');

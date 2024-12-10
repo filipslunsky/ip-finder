@@ -14,8 +14,6 @@ app.use(cors());
 
 app.get('/workaround-api/:ipAddress', async(req, res) => {
     const { ipAddress } = req.params;
-    console.log(ipAddress);
-
     try {
         const response = await fetch(`http://ip-api.com/json/${ipAddress}?fields=61439`);
         if (!response.ok) {
